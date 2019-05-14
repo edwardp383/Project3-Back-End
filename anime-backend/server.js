@@ -4,6 +4,8 @@ const bodyParser     = require('body-parser');
 const session        = require('express-session');
 const cors           = require('cors');
 const bcrypt 		 = require('bcryptjs');
+
+require('dotenv').config();
 require('./db/db.js');
 
 
@@ -13,13 +15,13 @@ app.use(bodyParser.json());
 
 
 const corsOptions = {
-	origin: 'http://localhost:3000',
+	origin: process.env.FRONT_END_URL,
 	credentials: true,
 	optionsSuccessStatus:200
 }
 
 app.use(session({
-  secret: 'a3jkal12l3!lkj%soin',
+  secret: process.env.SECRET,
   resave: false, 
   saveUninitialized: false 
 }))
@@ -36,6 +38,6 @@ app.use('/users', userController);
 app.use('/api/v1/anime', animeController)
 
 
-app.listen(3000, () => {
-  console.log('listening... on port: ', 3000);
+app.listen(process.env.PORT, () => {
+  console.log('listening... on port: ' + process.env.PORT);
 });

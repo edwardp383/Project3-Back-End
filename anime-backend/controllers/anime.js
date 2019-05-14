@@ -58,7 +58,7 @@ router.put('/:id', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
 	try {
 		const deletedAnime = await Anime.findByIdAndRemove(req.params.id)
-		res.send('good')
+		// res.send('good')
 	} catch (err) {
 		next(err)
 	}

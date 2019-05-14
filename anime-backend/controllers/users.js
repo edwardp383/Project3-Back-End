@@ -87,11 +87,11 @@ router.post('/login', async (req, res, next) => {
 		})
       } else {
         req.session.message = "Username or password is incorrect";
-        res.send('err pass')
+        // res.send('err pass')
       }
     } else {
       req.session.message = 'Username or Password is incorrect';
-      res.send('err not found')
+      // res.send('err not found')
     }
   } catch(err){
     next(err);
