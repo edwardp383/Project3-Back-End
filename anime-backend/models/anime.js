@@ -5,9 +5,7 @@ const animeSchema = new mongoose.Schema({
   name: String,
   photo: String,
   description: String,
-  episodes: [{
-    type: String
-  }],
+  episodes: Array,
   episodesWatched:[{
     type: Boolean,
     default: false

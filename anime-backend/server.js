@@ -4,7 +4,7 @@ const bodyParser     = require('body-parser');
 const session        = require('express-session');
 const cors           = require('cors');
 const bcrypt 		 = require('bcryptjs');
-require('./db/db');
+require('./db/db.js');
 
 
 
@@ -33,7 +33,7 @@ const animeController = require('./controllers/anime');
 
 
 app.use('/users', userController);
-// app.use('/anime', animeController)
+app.use('/api/v1/anime', animeController)
 
 
 app.listen(3000, () => {
